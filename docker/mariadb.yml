@@ -1,0 +1,21 @@
+version: '3.5'
+services:
+  mariadb:
+    image: mariadb:latest
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_USER=alumno
+      - MYSQL_PASSWORD=password
+      - MYSQL_DATABASE=curso
+    command: mysqld --sql_mode="ANSI_QUOTES" --character-set-server=utf8 --collation-server=utf8_slovenian_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
+    networks:
+      - mariadb_net
+    restart: always
+    ports:
+      - "0.0.0.0:3306:3306"
+    volumes:
+     - /datos/mariadb:/var/lib/mysql
+
+networks:
+  mariadb_net:
+    driver: bridge
