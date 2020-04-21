@@ -1,0 +1,1 @@
+./spark-submit --master spark://10.0.2.15:7077 /home/usuario/PycharmProjects/EjemplosSpark/Spark1.py

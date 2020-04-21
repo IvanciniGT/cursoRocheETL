@@ -2,11 +2,9 @@
 from pyspark.sql import SparkSession
 
 CPUs = 2
-DIRECCION_MAESTRO_SPARK = "local["+str(CPUs)+"]"
 MI_APP="AplicacionMuestra1"
 
 sesion_spark = SparkSession.builder \
-                           .master(DIRECCION_MAESTRO_SPARK) \
                            .appName(MI_APP) \
                            .getOrCreate()
 
@@ -73,7 +71,4 @@ print(ordenados)
 # % Modulo: Resto de Division entera
 # 5 % 2 => 1
 
-
-
-# Cierro conexión Spark
 sesion_spark.stop()
